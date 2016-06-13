@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
  * Created by homelink on 2016/5/24.
  */
 @Controller
-@RequestMapping(value = "/demoTest")
+    @RequestMapping(value = "/demoTest")
 public class testController {
     @RequestMapping(value = "/test")
     public String test(HttpServletRequest request, ModelAndView model) {
