@@ -10,7 +10,7 @@
     <!-- Spring MVC配置 -->
     <context:annotation-config/>
     <!--扫描注解 -->
-    <context:component-scan base-package="test"/>
+    <context:component-scan base-package="com.hunter"/>
     <!--默认的mvc注解映射的支持 -->
     <mvc:annotation-driven/>
     <!-- 支持异步方法执行 -->
@@ -21,7 +21,7 @@
         <property name="viewResolvers">
             <list>
                 <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-                    <property name="prefix" value="/WEB-INF/test/"/> <!--可为空,方便实现自已的依据扩展名来选择视图解释类的逻辑 -->
+                    <property name="prefix" value="/WEB-INF/content/"/> <!--可为空,方便实现自已的依据扩展名来选择视图解释类的逻辑 -->
                     <property name="suffix" value=".jsp"/>
                 </bean>
             </list>
