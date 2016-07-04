@@ -1,1 +1,0 @@
-package com.test.reflect;/** * Created by zhangchaolong on 16/6/20. */public class TestReflect {    public static void main(String[] args){//        testInstanceOf();    }    public void testInstanceOf(){        int _int=1;        Integer _integer=2;        Double _Double=2.3;        double _double=2.1;        boolean _boolean=true;    }}
