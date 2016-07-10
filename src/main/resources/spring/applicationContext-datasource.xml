@@ -12,11 +12,11 @@
 		<property name="maxActive" value="${dataSource.maxActive}" />
 		<property name="poolPreparedStatements" value="${dataSource.poolPreparedStatements}" />
 	</bean>
-	
+
 
 	<bean id="masterDataSource" parent="dataSourceParent"
-		class="com.alibaba.druid.pool.DruidDataSource" init-method="init"
-		destroy-method="close">
+		  class="com.alibaba.druid.pool.DruidDataSource" init-method="init"
+		  destroy-method="close">
 		<property name="name" value="master" />
 		<property name="driverClassName" value="${dataSource.master.driverClassName}" />
 		<property name="url" value="${dataSource.master.url}" />
@@ -24,9 +24,24 @@
 		<property name="password" value="${dataSource.master.password}" />
 		<!-- <property name="filters" value="slf4j" /> -->
 		<!--<property name="proxyFilters">-->
-			<!--<list>-->
-				<!--<ref bean="stat-filter" />-->
-			<!--</list>-->
+		<!--<list>-->
+		<!--<ref bean="stat-filter" />-->
+		<!--</list>-->
+		<!--</property>-->
+	</bean>
+	<bean id="slaveDataSource" parent="dataSourceParent"
+		  class="com.alibaba.druid.pool.DruidDataSource" init-method="init"
+		  destroy-method="close">
+		<property name="name" value="master" />
+		<property name="driverClassName" value="${dataSource.master.driverClassName}" />
+		<property name="url" value="${dataSource.master.url}" />
+		<property name="username" value="${dataSource.master.username}" />
+		<property name="password" value="${dataSource.master.password}" />
+		<!-- <property name="filters" value="slf4j" /> -->
+		<!--<property name="proxyFilters">-->
+		<!--<list>-->
+		<!--<ref bean="stat-filter" />-->
+		<!--</list>-->
 		<!--</property>-->
 	</bean>
 
