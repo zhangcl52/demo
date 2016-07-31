@@ -1,1 +1,1 @@
-package com.hunter.sys.dao;import com.hunter.base.dao.BaseDao;/** * @Author zhangcl * @Date 16/7/9  下午6:07 */public class SysUserDao extends BaseDao{}
+package com.hunter.sys.dao;import com.hunter.base.dao.BaseDao;import com.hunter.sys.entity.SysUserEntity;import org.springframework.stereotype.Repository;/** * @Author zhangcl * @Date 16/7/9  下午6:07 */@Repositorypublic class SysUserDao extends BaseDao<SysUserEntity>{}

@@ -4,13 +4,13 @@
 	   xsi:schemaLocation="http://www.springframework.org/schema/beans
                            http://www.springframework.org/schema/beans/spring-beans.xsd">
                            
-	<!--<bean id="mybatisBaseDao" class="com.ziroom.rent.common.orm.dao.mybatis.MybatisBaseDao" scope="prototype">-->
-		<!--<property name="masterSqlSessionTemplate" ref="masterSqlSessionTemplate" />-->
-		<!--<property name="slaveSqlSessionTemplate" ref="slaveSqlSessionTemplate" />-->
-	<!--</bean>-->
+	<bean id="mybatisBaseDao" class="com.hunter.base.dao.MybatisBaseDao" scope="prototype">
+		<property name="masterSqlSessionTemplate" ref="masterSqlSessionTemplate" />
+		<property name="slaveSqlSessionTemplate" ref="slaveSqlSessionTemplate" />
+	</bean>
 
-	<!--<bean id="jdbcBaseDao" class="com.ziroom.rent.common.orm.dao.jdbc.JdbcBaseDao">-->
-		<!--<property name="masterJdbcTemplate" ref="masterJdbcTemplate" />-->
-		<!--<property name="slaveJdbcTemplate" ref="slaveJdbcTemplate" />-->
-	<!--</bean>-->
+	<bean id="jdbcBaseDao" class="com.hunter.base.dao.JdbcBaseDao">
+		<property name="masterJdbcTemplate" ref="masterJdbcTemplate" />
+		<property name="slaveJdbcTemplate" ref="slaveJdbcTemplate" />
+	</bean>
 </beans>

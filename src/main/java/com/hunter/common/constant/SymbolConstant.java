@@ -1,4 +1,4 @@
-package com.hunter.base.constant;
+package com.hunter.common.constant;
 
 /**
  * 符号常量

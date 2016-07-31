@@ -13,6 +13,7 @@
     <mappers>
         <!-- demo -->
     	<!--<mapper resource="mybatis/mapper/demo/DemoMapper.xml"/>-->
+        <mapper resource="com/hunter/sys/entity/SysUserMapper.xml"/>
 
     </mappers>
 

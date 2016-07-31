@@ -5,9 +5,9 @@
                            http://www.springframework.org/schema/beans/spring-beans.xsd">
 
 	<bean id="masterJdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
-		<property name="dataSource" ref="masterDataSource" />
+		<property name="dataSource" ref="masterDataSource"/>
 	</bean>
-	<!--<bean id="slaveJdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">-->
-		<!--<property name="dataSource" ref="slaveDataSource" />-->
-	<!--</bean>-->
+	<bean id="slaveJdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+		<property name="dataSource" ref="slaveDataSource"/>
+	</bean>
 </beans>

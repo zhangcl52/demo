@@ -59,7 +59,7 @@
             <div>
                 <span>业务处理</span>
                 <a href="查询页面.html">电脑开票</a>
-                <a href="#"  dateUrl="/demoTest/test.do" id="menu_1_1" onclick="getPage('menu_1_1')">票据补录</a>
+                <a href="#"  dateUrl="/sys/user/list.do" id="menu_1_1" onclick="getPage('menu_1_1')">票据补录</a>
                 <a href="开票界面.html">票单复核</a>
                 <a href="客户投诉.html">货物配载</a>
                 <a href="线路管理.html">发车清单</a>
