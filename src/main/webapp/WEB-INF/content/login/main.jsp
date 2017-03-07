@@ -3,7 +3,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>hunter管理平台</title>
-    <link rel="stylesheet" href="/css/bootstrap.css"/>
+    <link rel="stylesheet" href="/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="/css/css.css"/>
     <script type="text/javascript" src="/js/jquery1.9.0.min.js"></script>
     <script type="text/javascript" src="/js/bootstrap.min.js"></script>
@@ -15,8 +15,8 @@
 <body>
 <!--顶部开始-->
 <div class="header">
-    <div class="logo"><img src="/img/logo.png"/></div>
-
+    <%--<div class="logo"><img src="/img/logo.png"/></div>--%>
+        <div class="logo"><img src=""/></div>
     <div class="header-right">
         <i class="icon-question-sign icon-white"></i> <a href="#">帮助</a> <i class="icon-off icon-white"></i> <a
             id="modal-973558" href="#modal-container-973558" role="button" data-toggle="modal">注销</a> <i
@@ -59,7 +59,7 @@
             <div>
                 <span>业务处理</span>
                 <a href="查询页面.html">电脑开票</a>
-                <a href="#"  dateUrl="/sys/user/list.do" id="menu_1_1" onclick="getPage('menu_1_1')">票据补录</a>
+                <a href="#" dateUrl="/sys/user/list.do" id="menu_1_1" onclick="getPage('menu_1_1')">用户管理</a>
                 <a href="开票界面.html">票单复核</a>
                 <a href="客户投诉.html">货物配载</a>
                 <a href="线路管理.html">发车清单</a>

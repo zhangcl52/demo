@@ -3,7 +3,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.hunter.sys.dao.SysUserDao" >
 
-    <resultMap id="allResultMap" type="com.hunter.sys.entity.SysUserEntity">
+    <resultMap id="allResultMap" type="com.hunter.sys.entity.SysUser">
         <id property="id" column="id"/>
 
         <result property="code" column="code"/>
@@ -13,14 +13,23 @@
         <result property="isDel" column="is_del"/>
         <result property="createTime" column="create_time"/>
         <result property="createName" column="create_name"/>
-        <result property="lastModifyTime" column="modify_time"/>
-        <result property="lastModifyName" column="modify_name"/>
+        <result property="modifyTime" column="modify_time"/>
+        <result property="modifyName" column="modify_name"/>
     </resultMap>
-
-    <select id="findAllUsers" resultMap="allResultMap">
+    <select id="findAll" resultMap="allResultMap">
         select * from sys_user where is_del=0
     </select>
     <select id="findOneById" resultMap="allResultMap" parameterType="long">
         select * from sys_user where is_del=0 and id=#{id}
+    </select>
+    <select id="deleteById" resultMap="allResultMap" parameterType="long">
+        delete from sys_user where id=#{id}
+    </select>
+    <select id="deleteByIds" resultMap="allResultMap">
+        delete from sys_user where id in (
+        <foreach collection="ids" item="id" separator=",">
+          #{id}
+        </foreach>
+        )
     </select>
 </mapper>
