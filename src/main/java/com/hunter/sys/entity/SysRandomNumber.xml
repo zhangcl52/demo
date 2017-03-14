@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.hunter.sys.dao.SysUserDao" >
+
+    <resultMap id="allResultMap" type="com.hunter.sys.entity.SysRandomNumber">
+        <id property="id" column="id"/>
+
+        <result property="number" column="number"/>
+        <result property="numberIsUsed" column="number_is_used"/>
+        <result property="isDel" column="is_del"/>
+    </resultMap>
+
+    <select id="findAll" resultMap="allResultMap">
+        select * from sys_random_number where is_del=0
+    </select>
+    <select id="findOneById" resultMap="allResultMap" parameterType="long">
+        select * from sys_random_number where is_del=0 and id=#{id}
+    </select>
+    <delete id="deleteById" parameterType="long">
+        delete from sys_random_number where id=#{id}
+    </delete>
+    <select id="deleteByIds" resultMap="allResultMap">
+        delete from sys_random_number where id in (
+        <foreach collection="ids" item="id" separator=",">
+          #{id}
+        </foreach>
+        )
+    </select>
+    <select id="countValidNumber" resultMap="long">
+        select count(*) from sys_random_number where is_del=0 and number_is_used=0
+    </select>
+
+
+    <update id="updateByEntity" parameterType="map">
+
+    </update>
+</mapper>

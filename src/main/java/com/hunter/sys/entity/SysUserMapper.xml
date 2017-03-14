@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.hunter.sys.dao.SysUserDao" >
+<mapper namespace="com.hunter.sys.dao.SysUserDao">
 
     <resultMap id="allResultMap" type="com.hunter.sys.entity.SysUser">
         <id property="id" column="id"/>
@@ -16,20 +16,56 @@
         <result property="modifyTime" column="modify_time"/>
         <result property="modifyName" column="modify_name"/>
     </resultMap>
+
+    <sql id="tableColumn">
+        (code,name,phone,is_del,create_time,create_name,modify_time,modify_name)
+    </sql>
+
+    <sql id="beanProperty">
+        (#{code},#{name},#{phone},#{isDel},#{createTime},#{createName}
+        ,#{modifyTime},#{modifyName})
+    </sql>
+
+    <insert id="insertOne" useGeneratedKeys="true" keyProperty="id" parameterType="SysUser">
+      insert into sys_user
+        <include refid="tableColumn"></include>
+      VALUES
+        <include refid="beanProperty"></include>
+    </insert>
+
+    <insert id="insertList" useGeneratedKeys="true" keyProperty="id">
+        insert into sys_user(code,name,phone,is_del,create_time,
+        create_name,modify_time,modify_name) VALUES
+        <foreach item="item" collection="list" separator=",">
+            (#{item.code},#{item.name},#{item.phone},#{item.isDel}
+            ,#{item.createTime},#{item.createName},#{item.modifyTime}
+            ,#{item.modifyName})
+        </foreach>
+    </insert>
+
+    <update id="updateOne">
+
+
+    </update>
+
     <select id="findAll" resultMap="allResultMap">
         select * from sys_user where is_del=0
     </select>
-    <select id="findOneById" resultMap="allResultMap" parameterType="long">
+
+    <select id="findOneById" resultMap="allResultMap">
         select * from sys_user where is_del=0 and id=#{id}
     </select>
-    <select id="deleteById" resultMap="allResultMap" parameterType="long">
+
+    <delete id="deleteById">
         delete from sys_user where id=#{id}
-    </select>
-    <select id="deleteByIds" resultMap="allResultMap">
+    </delete>
+
+    <delete id="deleteByIds">
         delete from sys_user where id in (
         <foreach collection="ids" item="id" separator=",">
-          #{id}
+            #{id}
         </foreach>
         )
-    </select>
+    </delete>
+
 </mapper>
