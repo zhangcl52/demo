@@ -13,7 +13,9 @@
     <mappers>
         <!-- demo -->
         <mapper resource="com/hunter/sys/entity/SysUserMapper.xml"/>
-
     </mappers>
 
+    <typeAlias>
+        <typeAlias alias="SysUser" type="com.hunter.sys.entity.SysUser"/>
+    </typeAlias>
 </configuration>

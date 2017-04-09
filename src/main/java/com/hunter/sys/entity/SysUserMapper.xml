@@ -16,7 +16,6 @@
         <result property="modifyTime" column="modify_time"/>
         <result property="modifyName" column="modify_name"/>
     </resultMap>
-
     <sql id="tableColumn">
         (code,name,phone,is_del,create_time,create_name,modify_time,modify_name)
     </sql>
@@ -26,13 +25,14 @@
         ,#{modifyTime},#{modifyName})
     </sql>
 
-    <insert id="insertOne" useGeneratedKeys="true" keyProperty="id" parameterType="SysUser">
-      insert into sys_user
+
+    <!--增加数据-->
+    <insert id="insert" useGeneratedKeys="true" keyProperty="id" parameterType="SysUser">
+        insert into sys_user
         <include refid="tableColumn"></include>
-      VALUES
+        VALUES
         <include refid="beanProperty"></include>
     </insert>
-
     <insert id="insertList" useGeneratedKeys="true" keyProperty="id">
         insert into sys_user(code,name,phone,is_del,create_time,
         create_name,modify_time,modify_name) VALUES
@@ -43,19 +43,8 @@
         </foreach>
     </insert>
 
-    <update id="updateOne">
 
-
-    </update>
-
-    <select id="findAll" resultMap="allResultMap">
-        select * from sys_user where is_del=0
-    </select>
-
-    <select id="findOneById" resultMap="allResultMap">
-        select * from sys_user where is_del=0 and id=#{id}
-    </select>
-
+    <!--删除-->
     <delete id="deleteById">
         delete from sys_user where id=#{id}
     </delete>
@@ -67,5 +56,23 @@
         </foreach>
         )
     </delete>
+    <delete id="deleteByEntity" parameterType="SysUser">
+        delete from sys_user where id=#{id}
+    </delete>
+    <!--修改-->
+    <update id="updateOne">
+
+
+    </update>
+
+    <!--查询-->
+    <select id="findAll" resultMap="allResultMap">
+        select * from sys_user where is_del=0
+    </select>
+
+    <select id="findOneById" resultMap="allResultMap">
+        select * from sys_user where is_del=0 and id=#{id}
+    </select>
+
 
 </mapper>
