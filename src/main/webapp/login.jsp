@@ -4,8 +4,9 @@
     <title>hunter管理平台</title>
     <link rel="stylesheet" href="css/bootstrap.css"/>
 
-    <script type="text/javascript" src="js/jquery1.9.0.min.js"></script>
+    <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
+
     <style type="text/css">
         body {
             background: #0066A8 url(img/login_bg.png) no-repeat center 0px;

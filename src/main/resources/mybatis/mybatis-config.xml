@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE configuration
-        PUBLIC "-//ibatis.apache.org//DTD Config 3.0//EN"
-        "http://ibatis.apache.org/dtd/ibatis-3-config.dtd">
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
     <settings>
         <setting name="cacheEnabled" value="true"/>
@@ -9,13 +9,11 @@
         <setting name="aggressiveLazyLoading" value="false"/>
         <setting name="mapUnderscoreToCamelCase" value="false"/>
     </settings>
-    
-    <mappers>
-        <!-- demo -->
-        <mapper resource="com/hunter/sys/entity/SysUserMapper.xml"/>
-    </mappers>
 
-    <typeAlias>
-        <typeAlias alias="SysUser" type="com.hunter.sys.entity.SysUser"/>
-    </typeAlias>
+
+    <mappers>
+        <mapper resource="com/hunter/sys/entity/SysUserMapper.xml"/>
+        <mapper resource="com/hunter/sys/entity/SysRandomNumberMapper.xml"/>
+
+    </mappers>
 </configuration>

@@ -3,13 +3,9 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>hunter管理平台</title>
-    <link rel="stylesheet" href="/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="/css/css.css"/>
-    <script type="text/javascript" src="/js/jquery1.9.0.min.js"></script>
-    <script type="text/javascript" src="/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="/js/sdmenu.js"></script>
-    <script type="text/javascript" src="/js/laydate/laydate.js"></script>
-
+    <%@ include file="../sys/common/common.jsp"%>
 </head>
 
 <body>
