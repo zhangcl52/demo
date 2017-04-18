@@ -9,6 +9,9 @@
         <result property="code" column="code"/>
         <result property="name" column="name"/>
         <result property="phone" column="phone"/>
+        <result property="password" column="password"/>
+        <result property="email" column="email"/>
+        <result property="sex" column="sex"/>
 
         <result property="isDel" column="is_del"/>
         <result property="createTime" column="create_time"/>
@@ -17,11 +20,11 @@
         <result property="modifyName" column="modify_name"/>
     </resultMap>
     <sql id="tableColumn">
-        (code,name,phone,is_del,create_time,create_name,modify_time,modify_name)
+        (code,name,password,sex,phone,email,is_del,create_time,create_name,modify_time,modify_name)
     </sql>
 
     <sql id="beanProperty">
-        (#{code},#{name},#{phone},#{isDel},#{createTime},#{createName}
+        (#{code},#{name},#{password},#{sex},#{phone},#{email},#{isDel},#{createTime},#{createName}
         ,#{modifyTime},#{modifyName})
     </sql>
 
@@ -34,12 +37,13 @@
         <include refid="beanProperty"></include>
     </insert>
     <insert id="insertList" useGeneratedKeys="true" keyProperty="id">
-        insert into sys_user(code,name,phone,is_del,create_time,
-        create_name,modify_time,modify_name) VALUES
+        insert into
+        <include refid="tableColumn"></include>
+        VALUES
         <foreach item="item" collection="list" separator=",">
-            (#{item.code},#{item.name},#{item.phone},#{item.isDel}
-            ,#{item.createTime},#{item.createName},#{item.modifyTime}
-            ,#{item.modifyName})
+            (#{item.code},#{item.name},#{item.password},#{item.sex},#{item.phone}
+            ,#{item.sex},#{item.isDel},#{item.createTime},#{item.createName}
+            ,#{item.modifyTime},#{item.modifyName})
         </foreach>
     </insert>
 
@@ -59,10 +63,25 @@
     <delete id="deleteByEntity" parameterType="com.hunter.sys.entity.SysUser">
         delete from sys_user where id=#{id}
     </delete>
+
+
     <!--修改-->
-    <update id="updateOne">
+    <update id="updateByEntity" parameterType="com.hunter.sys.entity.SysUser">
+      update sys_user
+      <set>
+          <if test="code !=null">code = #{code},</if>
+          <if test="name !=null">name = #{name},</if>
+          <if test="phone !=null">phone = #{phone},</if>
+          <if test="sex !=null">sex = #{sex},</if>
+          <if test="email !=null">email = #{email},</if>
 
-
+          <if test="isDel !=null">is_del = #{isDel},</if>
+          <if test="createTime !=null">create_time = #{createTime},</if>
+          <if test="createName !=null">create_name = #{createName},</if>
+          <if test="modifyTime !=null">modify_time = #{modifyTime},</if>
+          <if test="modifyName !=null">modify_name = #{modifyName}</if>
+      </set>
+      where id=#{id}
     </update>
 
     <!--查询-->
@@ -74,5 +93,12 @@
         select * from sys_user where is_del=0 and id=#{id}
     </select>
 
+    <!--<select id="findListByMap" parameterMap="paramMap">-->
+        <!--select * from sys_user-->
+        <!--<where>-->
+
+        <!--</where>-->
+
+    <!--</select>-->
 
 </mapper>

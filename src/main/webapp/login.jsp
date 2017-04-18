@@ -1,4 +1,8 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%
+    String path = request.getContextPath();
+    request.setAttribute("path", path);
+%>
 <!DOCTYPE html>
 <head>
     <title>hunter管理平台</title>
@@ -87,7 +91,7 @@
 
 <body>
 <div class="tit"><img src="img/tit.png" alt=""/></div>
-<form action="/sys/loginController/login.do" id="_form" method="post">
+<form action="${path}/sys/login/login.do" id="_form" method="post">
     <div class="login-wrap">
         <table width="100%" border="0" cellspacing="0" cellpadding="0">
             <tr>

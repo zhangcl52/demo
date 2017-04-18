@@ -2,10 +2,11 @@
 <!DOCTYPE html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>hunter管理平台</title>
-    <link rel="stylesheet" href="/css/css.css"/>
-    <script type="text/javascript" src="/js/sdmenu.js"></script>
     <%@ include file="../sys/common/common.jsp"%>
+    <title>hunter管理平台</title>
+    <link rel="stylesheet" href="${path}/css/css.css"/>
+    <script type="text/javascript" src="${path}/js/sdmenu.js"></script>
+
 </head>
 
 <body>
@@ -55,7 +56,7 @@
             <div>
                 <span>业务处理</span>
                 <a href="查询页面.html">电脑开票</a>
-                <a href="#" dateUrl="/sys/user/list.do" id="menu_1_1" onclick="getPage('menu_1_1')">用户管理</a>
+                <a href="#" dateUrl="${path}/sys/user/list.do" id="menu_1_1" onclick="getPage('menu_1_1')">用户管理</a>
                 <a href="开票界面.html">票单复核</a>
                 <a href="客户投诉.html">货物配载</a>
                 <a href="线路管理.html">发车清单</a>
@@ -81,10 +82,9 @@
     <%--右侧内容--%>
     <div class="right" id="mainFrame">
         <div class="right_cont">
-            <iframe src="/sys/loginController/getHomePage.do" marginheight="0" marginwidth="0" frameborder="0"
+            <iframe src="${path}/sys/login/getHomePage.do" marginheight="0" marginwidth="0" frameborder="0"
                     scrolling="no" width="100%" height="100%"
                     id="iframepage" name="iframepage" onLoad="iFrameHeight()">
-
             </iframe>
 
 
