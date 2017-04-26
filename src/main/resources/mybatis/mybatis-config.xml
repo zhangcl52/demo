@@ -12,10 +12,6 @@
     </settings>
 
 
-    <mappers>
-        <mapper resource="com/hunter/sys/entity/SysUserMapper.xml"/>
-        <mapper resource="com/hunter/sys/entity/SysRandomNumberMapper.xml"/>
-    </mappers>
 
 
 </configuration>

@@ -28,7 +28,7 @@
             width: 220px;
             padding: 30px 50px 0 330px;
             height: 220px;
-            background: #fff url(img/20150212154319.jpg) no-repeat 30px 40px;
+            background: #fff url(img/login_bg_HZ.png) no-repeat 30px 40px;
             margin: auto;
             overflow: hidden;
         }
@@ -90,7 +90,7 @@
 </head>
 
 <body>
-<div class="tit"><img src="img/tit.png" alt=""/></div>
+<div class="tit"><img src="img/tit1.png" alt=""/></div>
 <form action="${path}/sys/login/login.do" id="_form" method="post">
     <div class="login-wrap">
         <table width="100%" border="0" cellspacing="0" cellpadding="0">
