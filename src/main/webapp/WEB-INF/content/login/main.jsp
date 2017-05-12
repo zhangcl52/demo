@@ -55,9 +55,8 @@
         <div id="my_menu" class="sdmenu">
             <div>
                 <span>业务处理</span>
-                <a href="查询页面.html">电脑开票</a>
                 <a href="#" dateUrl="${path}/sys/user/list.do" id="menu_1_1" onclick="getPage('menu_1_1')">用户管理</a>
-                <a href="开票界面.html">票单复核</a>
+                <a href="#" dateUrl="${path}/sys/menu/list.do" id="menu_1_2" onclick="getPage('menu_1_2')">菜单管理</a>
                 <a href="客户投诉.html">货物配载</a>
                 <a href="线路管理.html">发车清单</a>
                 <a href="#">到货确认</a>
@@ -113,10 +112,14 @@
     }
     function getPage(menuId){
         var _menu = $("#"+menuId);
+        $("a").each(function () {
+            $(this).removeAttr("class");
+        });
+        _menu.attr("class","current");
         var pageUrl=_menu.attr("dateUrl");
         var ifm=$("#iframepage");
         ifm.attr("src",pageUrl);
-//        alert(ifm.attr("attr"));
+
     }
 </script>
 </body>

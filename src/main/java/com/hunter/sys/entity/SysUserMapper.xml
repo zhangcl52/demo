@@ -74,6 +74,7 @@
             <if test="phone !=null">phone = #{phone},</if>
             <if test="sex !=null">sex = #{sex},</if>
             <if test="email !=null">email = #{email},</if>
+            <if test="password !=null">password = #{password},</if>
 
             <if test="isDel !=null">is_del = #{isDel},</if>
             <if test="createTime !=null">create_time = #{createTime},</if>

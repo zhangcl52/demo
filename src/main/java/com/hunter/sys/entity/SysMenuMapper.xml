@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.hunter.sys.mapper.SysMenuMapper">
+
+    <resultMap id="allResultMap" type="com.hunter.sys.entity.SysMenu">
+        <id property="id" column="id"/>
+
+        <result property="parentId" column="parent_id"/>
+        <result property="name" column="name"/>
+        <result property="url" column="url"/>
+        <result property="icon" column="icon"/>
+        <result property="menuOrder" column="menu_order"/>
+        <result property="remark1" column="remark1"/>
+        <result property="remark2" column="remark2"/>
+        <result property="isValid" column="is_valid"/>
+        <result property="sysMenucol" column="sys_menucol"/>
+
+        <result property="isDel" column="is_del"/>
+        <result property="createTime" column="create_time"/>
+        <result property="createName" column="create_name"/>
+        <result property="modifyTime" column="modify_time"/>
+        <result property="modifyName" column="modify_name"/>
+
+    </resultMap>
+
+</mapper>
