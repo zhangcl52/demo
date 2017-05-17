@@ -53,20 +53,14 @@
         </script>
 
         <div id="my_menu" class="sdmenu">
-            <div>
-                <span>业务处理</span>
-                <a href="#" dateUrl="${path}/sys/user/list.do" id="menu_1_1" onclick="getPage('menu_1_1')">用户管理</a>
-                <a href="#" dateUrl="${path}/sys/menu/list.do" id="menu_1_2" onclick="getPage('menu_1_2')">菜单管理</a>
-                <a href="客户投诉.html">货物配载</a>
-                <a href="线路管理.html">发车清单</a>
-                <a href="#">到货确认</a>
-            </div>
-            <div class="collapsed">
-                <span>资金结算</span>
-                <a href="/demoTest/test.do">提货登记</a>
-                <a href="#">收款核销</a>
-            </div>
-
+            <c:forEach var="menu" items="${menuList}" varStatus="status">
+                <div>
+                    <span>${menu.name}</span>
+                    <c:forEach var="childMenu" items="${menu.childMenu}" varStatus="childStatus">
+                        <a href="#" dateUrl="${path}/${childMenu.url}" id="menu_${status.index}_${childStatus.index}" onclick="getPage('menu_${status.index}_${childStatus.index}')">${childMenu.name}</a>
+                    </c:forEach>
+                </div>
+            </c:forEach>
         </div>
     </div>
     <div class="Switch"></div>
@@ -121,6 +115,15 @@
         ifm.attr("src",pageUrl);
 
     }
+    //将菜单折叠起来(还需要调试)
+//    $(document).ready(function () {
+//        var myMenuDiv=$("#my_menu");
+//        var childDiv=myMenuDiv.children("div");
+//        childDiv.each(function () {
+//            $(this).attr("class","collapsed");
+//        });
+//
+//    });
 </script>
 </body>
 </html>
