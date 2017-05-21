@@ -8,6 +8,7 @@
 
         <result property="parentId" column="parent_id"/>
         <result property="name" column="name"/>
+        <result property="code" column="code"/>
         <result property="url" column="url"/>
         <result property="icon" column="icon"/>
         <result property="menuOrder" column="menu_order"/>
@@ -22,11 +23,11 @@
 
     </resultMap>
     <sql id="tableColumn">
-        (parent_id,name,url,icon,menu_order,remark1,remark2,is_del,create_time,create_name,modify_time,modify_name)
+        (parent_id,name,code,url,icon,menu_order,remark1,remark2,is_del,create_time,create_name,modify_time,modify_name)
     </sql>
 
     <sql id="beanProperty">
-        (#{parentId},#{name},#{url},#{icon},#{menuOrder},#{remark1},#{remark2},#{isDel},#{createTime},#{createName}
+        (#{parentId},#{name},${code},#{url},#{icon},#{menuOrder},#{remark1},#{remark2},#{isDel},#{createTime},#{createName}
         ,#{modifyTime},#{modifyName})
     </sql>
 
@@ -45,6 +46,7 @@
         <set>
             <if test="parentId !=null">parent_id = #{parentId},</if>
             <if test="name !=null">name = #{name},</if>
+            <if test="code !=null">code = #{code},</if>
             <if test="url !=null">url = #{url},</if>
             <if test="icon !=null">icon  = #{icon},</if>
             <if test="menuOrder !=null">menu_order = #{menuOrder},</if>
