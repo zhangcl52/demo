@@ -118,9 +118,47 @@
 <div class="copyright">建议使用IE8以上版本或谷歌浏览器</div>
 </body>
 <script>
+
     function submitForm() {
-        var _form=$("#_form");
-        _form.submit();
+        var username = $("#username").val().trim();
+        var password = $("#password").val();
+        var encryptPwd=calcMD5(calcMD5(password)+username);
+        //ajax 登录
+        if (validate(username, password)) {
+            $.ajax({
+                url: '${path}/sys/login/ajax/login.do',
+                type: 'post',
+                async: false,//是否异步
+                data: {
+                    userName: username,
+                    password: encryptPwd
+                },
+                timeout: 5000,
+                dataType: 'json',
+                success: function (data) {
+                    var code = data.code;
+                    var message = data.message;
+                    if (code == '2000') {
+                        location.href="${path}/sys/login/login.do";
+                    } else {
+                        $("#messageInfo").text(message);
+                    }
+                }
+            });
+        }
+
+    }
+
+    function validate(username, password) {
+        if (username == "") {
+            $("#messageInfo").text("手机号不能为空");
+            return false;
+        }
+        if (password == "") {
+            $("#messageInfo").text("密码不能为空");
+            return false;
+        }
+        return true;
     }
 
 

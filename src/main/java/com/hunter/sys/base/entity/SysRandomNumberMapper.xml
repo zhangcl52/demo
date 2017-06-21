@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.hunter.sys.dao.SysRandomNumberDao">
+<mapper namespace="com.hunter.sys.base.dao.SysRandomNumberDao">
 
-    <resultMap id="allResultMap" type="com.hunter.sys.entity.SysRandomNumber">
+    <resultMap id="allResultMap" type="com.hunter.sys.base.entity.SysRandomNumber">
         <id property="id" column="id"/>
 
         <result property="number" column="number"/>
@@ -30,7 +30,7 @@
     </select>
 
     <!--修改-->
-    <update id="updateByEntity" parameterType="com.hunter.sys.entity.SysRandomNumber">
+    <update id="updateByEntity" parameterType="com.hunter.sys.base.entity.SysRandomNumber">
         update sys_random_number
         <set>
             <if test="number!=null">number=#{number},</if>
