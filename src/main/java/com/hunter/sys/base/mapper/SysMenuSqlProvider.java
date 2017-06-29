@@ -1,1 +1,0 @@
-package com.hunter.sys.base.mapper;/** * @Author zhangcl * @Date 17/5/9  上午6:22 */public class SysMenuSqlProvider {}

@@ -10,6 +10,7 @@
 
     <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../../js/md5.js"></script>
 
     <style type="text/css">
         body {
@@ -26,9 +27,8 @@
 
         .login-wrap {
             width: 220px;
-            padding: 30px 50px 0 330px;
             height: 220px;
-            background: #fff url(img/login_bg_HZ.png) no-repeat 30px 40px;
+            background: #fff url(img/login_bg_HZ.png) no-repeat -50px -50px;
             margin: auto;
             overflow: hidden;
         }
@@ -90,25 +90,30 @@
 </head>
 
 <body>
-<div class="tit"><img src="img/tit1.png" alt=""/></div>
+<%--<div class="tit"><img src="img/tit.png" alt=""/></div>--%>
+<div class="tit"><a style="color:#2b2b2b;font-size: 20px">demo system</a></div>
 <form action="${path}/sys/login/login.do" id="_form" method="post">
     <div class="login-wrap">
-        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <table border="0" cellspacing="0" cellpadding="0">
             <tr>
                 <td height="25" valign="bottom">用户名：</td>
             </tr>
             <tr>
-                <td><input name="username" type="text" class="login_input login_user" value=""/></td>
+                <td><input name="username" id="username" type="text" class="login_input login_user" value=""/></td>
             </tr>
             <tr>
                 <td height="35" valign="bottom">密 码：</td>
             </tr>
             <tr>
-                <td><input name="password" type="password" class="login_input login_password" value=""/></td>
+                <td><input name="password" id="password" type="password" class="login_input login_password" value=""/></td>
             </tr>
             <tr>
                 <td height="60" valign="bottom"><a class="btn btn-block btn-login" onclick="submitForm()"
                 >登录</a>
+                </td>
+            </tr>
+            <tr>
+                <td height="30" valign="bottom"><a style="color:red" id="messageInfo"></a>
                 </td>
             </tr>
 
@@ -122,15 +127,15 @@
     function submitForm() {
         var username = $("#username").val().trim();
         var password = $("#password").val();
-        var encryptPwd=calcMD5(calcMD5(password)+username);
         //ajax 登录
         if (validate(username, password)) {
+            var encryptPwd=calcMD5(calcMD5(password)+username);
             $.ajax({
                 url: '${path}/sys/login/ajax/login.do',
                 type: 'post',
                 async: false,//是否异步
                 data: {
-                    userName: username,
+                    username: username,
                     password: encryptPwd
                 },
                 timeout: 5000,
@@ -151,7 +156,7 @@
 
     function validate(username, password) {
         if (username == "") {
-            $("#messageInfo").text("手机号不能为空");
+            $("#messageInfo").text("用户名不能为空");
             return false;
         }
         if (password == "") {
